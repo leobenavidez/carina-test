@@ -1,10 +1,11 @@
-package com.qaprosoft.carina.demo.gui.pages;
+package com.solvd.meta.carina.gui.pages;
 
 import com.qaprosoft.carina.core.foundation.utils.Configuration;
 import com.qaprosoft.carina.core.foundation.utils.R;
 import com.qaprosoft.carina.core.gui.AbstractPage;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.foundation.webdriver.core.capability.impl.desktop.ChromeCapabilities;
+import com.qaprosoft.carina.demo.gui.pages.HomePage;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
@@ -29,18 +30,15 @@ public class LogInPage extends AbstractPage {
     }
 
     public void setUsername(String keys){
-        assertElementPresent(username);
         this.username.type(keys);
     }
     public void setPassword(String keys){
         assertElementPresent(password);
         this.password.type(keys);
     }
-    public void setLogIn(){
-        assertElementPresent(logIn);
-        this.logIn.click();
+    public HomePage clickLogIn(){
+        logIn.click();
+        return new HomePage(getDriver());
     }
-    public boolean isLogedIn(){
-        return this.getPageURL()=="https://www.saucedemo.com/inventory.html";
-    }
+    public boolean isPageOpen(){return username.isPresent();}
 }
