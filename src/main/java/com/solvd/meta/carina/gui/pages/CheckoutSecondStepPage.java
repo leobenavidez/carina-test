@@ -7,23 +7,29 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
 public class CheckoutSecondStepPage extends AbstractPage {
+
     @FindBy(xpath = "//button[@id='cancel']")
-    private ExtendedWebElement cancel;
+    private ExtendedWebElement cancelButton;
+
     @FindBy(xpath = "//button[@id='finish']")
-    private ExtendedWebElement finish;
+    private ExtendedWebElement finishButton;
+
     @FindBy(xpath = "//div[@class='primary_header']")
     private Header header;
 
     public CheckoutSecondStepPage(WebDriver driver) {
         super(driver);
     }
+
     public InventoryPage clickCancel(){
-        cancel.click();
+        cancelButton.click();
         return new InventoryPage(driver);
     }
+
     public CheckoutFinish clickFinish(){
-        finish.click();
+        finishButton.click();
         return new CheckoutFinish(driver);
     }
+
     public Header getHeader(){return header;}
 }

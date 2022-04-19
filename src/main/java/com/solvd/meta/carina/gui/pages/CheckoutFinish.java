@@ -7,17 +7,21 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
 public class CheckoutFinish extends AbstractPage {
+
     @FindBy(xpath = "//div[@class='primary_header']")
     private Header header;
+
     @FindBy(xpath = "//button[@data-test='back-to-products']")
-    private ExtendedWebElement backToHome;
+    private ExtendedWebElement backToHomeButton;
 
     public CheckoutFinish(WebDriver driver) {
         super(driver);
     }
+
     public InventoryPage clickBackHome(){
-        backToHome.click();
+        backToHomeButton.click();
         return new InventoryPage(driver);
     }
+
     public Header getHeader(){return header;}
 }

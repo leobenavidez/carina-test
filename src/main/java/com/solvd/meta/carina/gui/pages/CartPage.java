@@ -7,23 +7,29 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
 public class CartPage extends AbstractPage {
+
     @FindBy(xpath = "//button[@id='continue-shopping']")
-    private ExtendedWebElement continueShopping;
+    private ExtendedWebElement continueShoppingButton;
+
     @FindBy(xpath = "//button[@id='checkout']")
-    private ExtendedWebElement checkout;
+    private ExtendedWebElement checkoutButton;
+
     @FindBy(xpath = "//div[@class='primary_header']")
     private Header header;
 
     public CartPage(WebDriver driver) {
         super(driver);
     }
+
     public InventoryPage clickContinueShopping(){
-        continueShopping.click();
+        continueShoppingButton.click();
         return new InventoryPage(driver);
     }
+
     public Header getHeader(){return header;}
+
     public CheckOutPage clickCheckout(){
-        checkout.click();
+        checkoutButton.click();
         return new CheckOutPage(driver);
     }
 }

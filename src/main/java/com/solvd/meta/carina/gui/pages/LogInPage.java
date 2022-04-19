@@ -36,9 +36,9 @@ public class LogInPage extends AbstractPage {
         assertElementPresent(password);
         this.password.type(keys);
     }
-    public HomePage clickLogIn(){
+    public InventoryPage clickLogIn(){
         logIn.click();
-        return new HomePage(getDriver());
+        return new InventoryPage(getDriver());
     }
-    public boolean isPageOpen(){return username.isPresent();}
+    public boolean isPageOpen(){return !username.isPresent();}
 }

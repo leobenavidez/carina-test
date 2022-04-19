@@ -9,38 +9,49 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
 public class Header extends AbstractUIObject {
+
     @FindBy (xpath = "//button[@id='react-burger-menu-btn']")
-    private ExtendedWebElement menu;
+    private ExtendedWebElement menuButton;
+
     @FindBy (xpath = "//a[@class='shopping_cart_link']")
-    private ExtendedWebElement cart;
+    private ExtendedWebElement cartButton;
+
     @FindBy (xpath = "//a[@id='inventory_sidebar_link']")
-    private ExtendedWebElement allItems;
+    private ExtendedWebElement allItemsButton;
+
     @FindBy (xpath = "//a[@id='about_sidebar_link']")
-    private ExtendedWebElement about;
+    private ExtendedWebElement aboutButton;
+
     @FindBy (xpath = "//a[@id='logout_sidebar_link']")
-    private ExtendedWebElement logout;
+    private ExtendedWebElement logoutButton;
+
     @FindBy (xpath = "//a[@id='reset_sidebar_link']")
-    private ExtendedWebElement resetState;
+    private ExtendedWebElement resetStateButton;
 
 
     public Header(WebDriver driver, SearchContext searchContext) {
         super(driver, searchContext);
     }
-    public void clickMenu(){menu.click();}
-    public void clickCart(){cart.click();}
+
+    public void clickMenu(){menuButton.click();}
+
+    public void clickCart(){cartButton.click();}
+
     public LogInPage clickLogout(){
-        assertElementPresent(logout);
-        logout.click();
+        assertElementPresent(logoutButton);
+        logoutButton.click();
         return new LogInPage(driver);
     }
+
     public InventoryPage clickAllItems(){
-        assertElementPresent(allItems);
-        allItems.click();
+        assertElementPresent(allItemsButton);
+        allItemsButton.click();
         return new InventoryPage(driver);
     }
+
     public void clickResetState(){
-        assertElementPresent(resetState);
-        resetState.click();
+        assertElementPresent(resetStateButton);
+        resetStateButton.click();
     }
 
 }

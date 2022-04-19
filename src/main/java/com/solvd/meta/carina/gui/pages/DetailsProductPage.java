@@ -7,40 +7,52 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
 public class DetailsProductPage extends AbstractPage {
+
     @FindBy(xpath = "//img[@class='inventory_details_img']")
     private ExtendedWebElement img;
+
     @FindBy(xpath = "//div[@class='inventory_details_name large_size']")
     private ExtendedWebElement itemName;
+
     @FindBy(xpath = "//div[@class='inventory_details_desc large_size']")
     private ExtendedWebElement itemDesc;
+
     @FindBy(xpath = "//div[@class='inventory_details_price']")
     private ExtendedWebElement price;
+
     @FindBy(xpath = "//button[@class='btn btn_primary btn_small btn_inventory']")
-    private ExtendedWebElement addToCart;
+    private ExtendedWebElement addToCartButton;
+
     @FindBy(xpath = "//div[@class='primary_header']")
     private Header header;
+
+    @FindBy(xpath = "//button[@data-test='back-to-products']")
+    private ExtendedWebElement backToProductsButton;
 
     public DetailsProductPage(WebDriver driver) {
         super(driver);
     }
 
-    public ExtendedWebElement getItemName() {
-        return itemName;
+    public String getItemName() {
+        return itemName.getText();
     }
 
-    public ExtendedWebElement getItemDesc() {
-        return itemDesc;
+    public String getItemDesc() {
+        return itemDesc.getText();
     }
 
-    public ExtendedWebElement getPrice() {
-        return price;
+    public String getPrice() {
+        return price.getText();
     }
 
-    public ExtendedWebElement getAddToCart() {
-        return addToCart;
+    public void clickAddToCart() {
+        addToCartButton.click();
     }
 
-    public ExtendedWebElement getImg(){return img;}
+    public InventoryPage clickBackToProducts(){
+        backToProductsButton.click();
+        return new InventoryPage(driver);
+    }
 
     public Header getHeader(){return header;}
 }
