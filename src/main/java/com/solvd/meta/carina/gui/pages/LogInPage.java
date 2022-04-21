@@ -29,16 +29,21 @@ public class LogInPage extends AbstractPage {
         setPageAbsoluteURL(R.CONFIG.get(Configuration.Parameter.URL.getKey()));
     }
 
-    public void setUsername(String keys){
+    public void setUsername(String keys) {
         this.username.type(keys);
     }
-    public void setPassword(String keys){
+
+    public void setPassword(String keys) {
         assertElementPresent(password);
         this.password.type(keys);
     }
-    public InventoryPage clickLogIn(){
+
+    public InventoryPage clickLogIn() {
         logIn.click();
         return new InventoryPage(getDriver());
     }
-    public boolean isPageOpen(){return !username.isPresent();}
+
+    public boolean isPageOpened() {
+        return username.isPresent();
+    }
 }
