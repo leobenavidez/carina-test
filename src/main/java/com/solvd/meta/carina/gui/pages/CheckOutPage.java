@@ -1,6 +1,7 @@
 package com.solvd.meta.carina.gui.pages;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
+import com.qaprosoft.carina.core.foundation.webdriver.decorator.PageOpeningStrategy;
 import com.qaprosoft.carina.core.gui.AbstractPage;
 import com.solvd.meta.carina.gui.components.Header;
 import org.openqa.selenium.WebDriver;
@@ -28,6 +29,8 @@ public class CheckOutPage extends AbstractPage {
 
     public CheckOutPage(WebDriver driver) {
         super(driver);
+        setPageOpeningStrategy(PageOpeningStrategy.BY_ELEMENT);
+        setUiLoadedMarker(continueButton);
     }
 
     public CartPage clickCancel(){

@@ -2,6 +2,7 @@ package com.solvd.meta.carina.gui.pages;
 
 import com.qaprosoft.carina.core.foundation.utils.Configuration;
 import com.qaprosoft.carina.core.foundation.utils.R;
+import com.qaprosoft.carina.core.foundation.webdriver.decorator.PageOpeningStrategy;
 import com.qaprosoft.carina.core.gui.AbstractPage;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.foundation.webdriver.core.capability.impl.desktop.ChromeCapabilities;
@@ -26,7 +27,8 @@ public class LogInPage extends AbstractPage {
 
     public LogInPage(WebDriver driver) {
         super(driver);
-        setPageAbsoluteURL(R.CONFIG.get(Configuration.Parameter.URL.getKey()));
+        setPageOpeningStrategy(PageOpeningStrategy.BY_ELEMENT);
+        setUiLoadedMarker(logIn);
     }
 
     public void setUsername(String keys) {
@@ -41,9 +43,5 @@ public class LogInPage extends AbstractPage {
     public InventoryPage clickLogIn() {
         logIn.click();
         return new InventoryPage(getDriver());
-    }
-
-    public boolean isPageOpened() {
-        return username.isPresent();
     }
 }

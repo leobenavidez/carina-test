@@ -24,20 +24,27 @@ public class Product extends AbstractUIObject {
     @FindBy(xpath = ".//button[@class='btn btn_primary btn_small btn_inventory']")
     private ExtendedWebElement addToCart;
 
-    public InventoryPage clickImage(){
+    public InventoryPage clickImage() {
         img.click();
         return new InventoryPage(driver);
     }
-    public String getItemName(){
+
+    public String getItemName() {
         return itemName.getText();
     }
-    public String getDesc(){
+
+    public String getDesc() {
         return itemDesc.getText();
     }
-    public String getPrice(){
+
+    public String getPrice() {
         return price.getText();
     }
 
+    public void clickAddToCart() {
+        assertElementPresent(addToCart);
+        addToCart.click();
+    }
 
     public Product(WebDriver driver, SearchContext searchContext) {
         super(driver, searchContext);

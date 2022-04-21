@@ -1,6 +1,7 @@
 package com.solvd.meta.carina.gui.pages;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
+import com.qaprosoft.carina.core.foundation.webdriver.decorator.PageOpeningStrategy;
 import com.qaprosoft.carina.core.gui.AbstractPage;
 import com.solvd.meta.carina.gui.components.Header;
 import org.openqa.selenium.WebDriver;
@@ -19,6 +20,8 @@ public class CartPage extends AbstractPage {
 
     public CartPage(WebDriver driver) {
         super(driver);
+        setPageOpeningStrategy(PageOpeningStrategy.BY_ELEMENT);
+        setUiLoadedMarker(continueShoppingButton);
     }
 
     public InventoryPage clickContinueShopping(){
@@ -29,6 +32,7 @@ public class CartPage extends AbstractPage {
     public Header getHeader(){return header;}
 
     public CheckOutPage clickCheckout(){
+        assertElementPresent(checkoutButton);
         checkoutButton.click();
         return new CheckOutPage(driver);
     }

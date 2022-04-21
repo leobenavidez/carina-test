@@ -2,6 +2,7 @@ package com.solvd.meta.carina;
 
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 
+import com.qaprosoft.carina.core.foundation.utils.R;
 import com.solvd.meta.carina.gui.components.Product;
 import com.solvd.meta.carina.gui.pages.InventoryPage;
 import com.solvd.meta.carina.gui.pages.LogInPage;
@@ -17,12 +18,11 @@ public class Logintest implements IAbstractTest {
     @Test
     public void loginTest() {
         LogInPage loginPage = new LogInPage(getDriver());
-        InventoryPage inventoryPage = null;
         loginPage.open();
-        Assert.assertFalse(loginPage.isPageOpened(), "Home page is not opened");
-        loginPage.setUsername("standard_user");
-        loginPage.setPassword("secret_sauce");
-        inventoryPage = loginPage.clickLogIn();
-        Assert.assertTrue(loginPage.isPageOpened(), "Login succesfull");
+        Assert.assertTrue(loginPage.isPageOpened(), "Home page is not opened");
+        loginPage.setUsername(R.TESTDATA.get("standar_username"));
+        loginPage.setPassword(R.TESTDATA.get("standar_user_password"));
+        InventoryPage inventoryPage = loginPage.clickLogIn();
+        Assert.assertTrue(inventoryPage.isPageOpened(), "Login failed after click login button");
     }
 }

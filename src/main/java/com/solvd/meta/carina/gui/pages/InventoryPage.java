@@ -1,6 +1,7 @@
 package com.solvd.meta.carina.gui.pages;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
+import com.qaprosoft.carina.core.foundation.webdriver.decorator.PageOpeningStrategy;
 import com.qaprosoft.carina.core.gui.AbstractPage;
 import com.solvd.meta.carina.gui.components.Header;
 import com.solvd.meta.carina.gui.components.Product;
@@ -22,13 +23,21 @@ public class InventoryPage extends AbstractPage {
 
     public InventoryPage(WebDriver driver) {
         super(driver);
+        setPageOpeningStrategy(PageOpeningStrategy.BY_ELEMENT);
+        setUiLoadedMarker(sort);
     }
 
-    public Product getProducts(int pos){ return products.get(pos);}
+    public Product getProducts(int pos) {
+        return products.get(pos);
+    }
 
-    public ExtendedWebElement getSort(){return sort;}
+    public ExtendedWebElement getSort() {
+        return sort;
+    }
 
-    public Header getHeader(){return header;}
+    public Header getHeader() {
+        return header;
+    }
 
 
 }
