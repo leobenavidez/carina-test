@@ -2,6 +2,7 @@ package com.solvd.meta.carina.gui.components;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractUIObject;
+import com.solvd.meta.carina.gui.pages.DetailsProductPage;
 import com.solvd.meta.carina.gui.pages.InventoryPage;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
@@ -24,9 +25,9 @@ public class Product extends AbstractUIObject {
     @FindBy(xpath = ".//button[@class='btn btn_primary btn_small btn_inventory']")
     private ExtendedWebElement addToCart;
 
-    public InventoryPage clickImage() {
+    public DetailsProductPage clickImage() {
         img.click();
-        return new InventoryPage(driver);
+        return new DetailsProductPage(driver);
     }
 
     public String getItemName() {

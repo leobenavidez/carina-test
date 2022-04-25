@@ -31,6 +31,10 @@ public class InventoryPage extends AbstractPage {
         return products.get(pos);
     }
 
+    public List<Product> getAllProducts(){
+        return products;
+    }
+
     public ExtendedWebElement getSort() {
         return sort;
     }

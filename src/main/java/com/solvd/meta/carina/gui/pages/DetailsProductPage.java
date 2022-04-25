@@ -36,16 +36,31 @@ public class DetailsProductPage extends AbstractPage {
         setUiLoadedMarker(img);
     }
 
+    public boolean isPresentImage(){
+        return img.isPresent();
+    }
+
     public String getItemName() {
         return itemName.getText();
+    }
+
+    public boolean isPresentItemName(){
+        return itemName.isPresent();
     }
 
     public String getItemDesc() {
         return itemDesc.getText();
     }
 
+    public boolean isPresentItemDesc(){
+        return itemDesc.isPresent();
+    }
     public String getPrice() {
         return price.getText();
+    }
+
+    public boolean isPresentPrice(){
+        return price.isPresent();
     }
 
     public void clickAddToCart() {
