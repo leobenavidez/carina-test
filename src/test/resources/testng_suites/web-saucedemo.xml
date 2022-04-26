@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite verbose="1" name="Saucedemo test" parallel="methods">
+<suite verbose="1" name="Saucedemo test" parallel="methods" thread-count="5">
+    <parameter name="suiteOwner" value="qpsdemo"/>
+    <parameter name="jenkinsJobName" value="Saucedemo test cases"/>
+    <parameter name="jenkinsJobType" value="web"/>
+    <parameter name="jenkinsEnvironments" value="DEMO"/>
+
+    <parameter name="jenkinsRegressionPipeline" value="DEMO"/>
+
+    <parameter name="jenkinsRegressionMatrix_full_regression" value="browser: chrome;"/>
+    <parameter name="jenkinsAutoScreenshot" value="true"/>
     <test name="Login Test">
         <classes>
             <class name="com.solvd.meta.carina.LoginTest">
                 <methods>
-                    <include name="loginTest"></include>
-                    <include name="loginLockedUserTest"></include>
+                    <include name="loginTest"/>
+                    <include name="loginLockedUserTest"/>
                 </methods>
             </class>
         </classes>
@@ -15,7 +24,7 @@
         <classes>
             <class name="com.solvd.meta.carina.CheckProductDetailScreenTest">
                 <methods>
-                    <include name="checkDetailsTest"></include>
+                    <include name="checkDetailsTest"/>
                 </methods>
             </class>
         </classes>
@@ -24,7 +33,7 @@
         <classes>
             <class name="com.solvd.meta.carina.LogOutTest">
                 <methods>
-                    <include name="logOutTest"></include>
+                    <include name="logOutTest"/>
                 </methods>
             </class>
             
@@ -34,7 +43,7 @@
         <classes>
             <class name="com.solvd.meta.carina.MakeOrderTest">
                 <methods>
-                    <include name="makeOrderTest"></include>
+                    <include name="makeOrderTest"/>
                 </methods>
             </class>
         </classes>
