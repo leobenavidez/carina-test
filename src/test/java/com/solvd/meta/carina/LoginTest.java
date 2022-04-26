@@ -29,6 +29,7 @@ public class LoginTest implements IAbstractTest {
         Assert.assertTrue(loginPage.isPageOpened(), "Home page is not opened");
         loginPage.setUsername(R.TESTDATA.get("locked_user"));
         loginPage.setPassword(R.TESTDATA.get("standard_user_password"));
-        Assert.assertTrue(loginPage.isPageOpened(), "Login aproved after click login button");
+        InventoryPage inventoryPage = loginPage.clickLogIn();
+        Assert.assertTrue(loginPage.errorMesaggeIsPresent(), "Login approved after click login button");
     }
 }

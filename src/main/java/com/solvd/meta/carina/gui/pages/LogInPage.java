@@ -21,6 +21,9 @@ public class LogInPage extends AbstractPage {
     @FindBy(xpath = "//input[@data-test='login-button']")
     private ExtendedWebElement logIn;
 
+    @FindBy(xpath = "//h3[@data-test='error']")
+    private ExtendedWebElement errorMesage;
+
     public LogInPage(WebDriver driver) {
         super(driver);
         setPageOpeningStrategy(PageOpeningStrategy.BY_ELEMENT);
@@ -39,5 +42,9 @@ public class LogInPage extends AbstractPage {
     public InventoryPage clickLogIn() {
         logIn.click();
         return new InventoryPage(getDriver());
+    }
+
+    public boolean errorMesaggeIsPresent(){
+        return errorMesage.isPresent();
     }
 }

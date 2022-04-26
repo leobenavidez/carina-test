@@ -1,24 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="saucedemo test">
-    <test name="test login">
+<suite verbose="1" name="Saucedemo test" parallel="methods">
+    <test name="Login Test">
         <classes>
-            <class name="com.solvd.meta.carina.LoginTest"/>
+            <class name="com.solvd.meta.carina.LoginTest">
+                <methods>
+                    <include name="loginTest"></include>
+                    <include name="loginLockedUserTest"></include>
+                </methods>
+            </class>
         </classes>
     </test> <!-- Test -->
-    <test name="produtcs test">
+    <test name="Products test">
         <classes>
-            <class name="com.solvd.meta.carina.CheckProductDetailScreenTest"></class>
+            <class name="com.solvd.meta.carina.CheckProductDetailScreenTest">
+                <methods>
+                    <include name="checkDetailsTest"></include>
+                </methods>
+            </class>
         </classes>
     </test>
-    <test name="logout test">
+    <test name="Logout test">
         <classes>
-            <class name="com.solvd.meta.carina.LogOutTest"/>
+            <class name="com.solvd.meta.carina.LogOutTest">
+                <methods>
+                    <include name="logOutTest"></include>
+                </methods>
+            </class>
+            
         </classes>
     </test>
-    <test name="make order test">
+    <test name="Make order test">
         <classes>
-            <class name="com.solvd.meta.carina.MakeOrderTest"/>
+            <class name="com.solvd.meta.carina.MakeOrderTest">
+                <methods>
+                    <include name="makeOrderTest"></include>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite> <!-- Suite -->
