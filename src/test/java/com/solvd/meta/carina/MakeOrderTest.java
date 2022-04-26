@@ -24,20 +24,20 @@ public class MakeOrderTest implements IAbstractTest {
         loginPage.setPassword(password);
         return loginPage.clickLogIn();
     }
+
     @Test
-    public void makeOrderTest(){
-        InventoryPage inventoryPage= login(R.TESTDATA.get("standard_username"), R.TESTDATA.get("standard_user_password"));
-        Product productTest1= inventoryPage.getProducts(0);
+    public void makeOrderTest() {
+        InventoryPage inventoryPage = login(R.TESTDATA.get("standard_username"), R.TESTDATA.get("standard_user_password"));
+        Product productTest1 = inventoryPage.getProducts(0);
         productTest1.clickAddToCart();
         Header header = inventoryPage.getHeader();
-        CartPage cartPage= header.clickCart();
-        CheckOutPage checkOutPage= cartPage.clickCheckout();
+        CartPage cartPage = header.clickCart();
+        CheckOutPage checkOutPage = cartPage.clickCheckout();
         checkOutPage.setFirstName(R.TESTDATA.get("first_name"));
         checkOutPage.setLastName(R.TESTDATA.get("last_name"));
         checkOutPage.setPostalCode(R.TESTDATA.get("zip_code"));
-        CheckoutSecondStepPage checkoutSecondStepPage= checkOutPage.clickContinue();
-        CheckoutFinish checkoutFinish= checkoutSecondStepPage.clickFinish();
+        CheckoutSecondStepPage checkoutSecondStepPage = checkOutPage.clickContinue();
+        CheckoutFinish checkoutFinish = checkoutSecondStepPage.clickFinish();
         Assert.assertTrue(checkoutFinish.isPageOpened(), "Unexpected error");
     }
-
 }

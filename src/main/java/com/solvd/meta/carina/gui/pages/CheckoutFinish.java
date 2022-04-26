@@ -21,10 +21,12 @@ public class CheckoutFinish extends AbstractPage {
         setUiLoadedMarker(backToHomeButton);
     }
 
-    public InventoryPage clickBackHome(){
+    public InventoryPage clickBackHome() {
         backToHomeButton.click();
         return new InventoryPage(driver);
     }
 
-    public Header getHeader(){return header;}
+    public Header getHeader() {
+        return header;
+    }
 }

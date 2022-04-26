@@ -24,14 +24,16 @@ public class CartPage extends AbstractPage {
         setUiLoadedMarker(continueShoppingButton);
     }
 
-    public InventoryPage clickContinueShopping(){
+    public InventoryPage clickContinueShopping() {
         continueShoppingButton.click();
         return new InventoryPage(driver);
     }
 
-    public Header getHeader(){return header;}
+    public Header getHeader() {
+        return header;
+    }
 
-    public CheckOutPage clickCheckout(){
+    public CheckOutPage clickCheckout() {
         assertElementPresent(checkoutButton);
         checkoutButton.click();
         return new CheckOutPage(driver);

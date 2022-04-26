@@ -33,28 +33,30 @@ public class CheckOutPage extends AbstractPage {
         setUiLoadedMarker(continueButton);
     }
 
-    public CartPage clickCancel(){
+    public CartPage clickCancel() {
         cancelButton.click();
         return new CartPage(driver);
     }
 
-    public CheckoutSecondStepPage clickContinue(){
+    public CheckoutSecondStepPage clickContinue() {
         continueButton.click();
         return new CheckoutSecondStepPage(driver);
     }
 
-    public void setFirstName(String firstName){
+    public void setFirstName(String firstName) {
         this.firstNameField.type(firstName);
     }
 
-    public void setLastName(String lastName){
+    public void setLastName(String lastName) {
         this.lastNameField.type(lastName);
     }
 
-    public void setPostalCode(String postalCode){
+    public void setPostalCode(String postalCode) {
         this.postalCodeField.type(postalCode);
     }
 
-    public Header getHeader(){return header;}
+    public Header getHeader() {
+        return header;
+    }
 
 }

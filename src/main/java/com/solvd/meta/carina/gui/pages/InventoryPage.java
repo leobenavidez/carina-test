@@ -31,7 +31,7 @@ public class InventoryPage extends AbstractPage {
         return products.get(pos);
     }
 
-    public List<Product> getAllProducts(){
+    public List<Product> getAllProducts() {
         return products;
     }
 
@@ -42,6 +42,5 @@ public class InventoryPage extends AbstractPage {
     public Header getHeader() {
         return header;
     }
-
 
 }

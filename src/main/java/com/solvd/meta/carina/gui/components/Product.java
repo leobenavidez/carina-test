@@ -3,7 +3,6 @@ package com.solvd.meta.carina.gui.components;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractUIObject;
 import com.solvd.meta.carina.gui.pages.DetailsProductPage;
-import com.solvd.meta.carina.gui.pages.InventoryPage;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;

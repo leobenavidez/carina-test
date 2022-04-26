@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="saucedemo test">
+    <test name="test login">
+        <classes>
+            <class name="com.solvd.meta.carina.LoginTest"/>
+        </classes>
+    </test> <!-- Test -->
+    <test name="produtcs test">
+        <classes>
+            <class name="com.solvd.meta.carina.CheckProductDetailScreenTest"></class>
+        </classes>
+    </test>
+    <test name="logout test">
+        <classes>
+            <class name="com.solvd.meta.carina.LogOutTest"/>
+        </classes>
+    </test>
+    <test name="make order test">
+        <classes>
+            <class name="com.solvd.meta.carina.MakeOrderTest"/>
+        </classes>
+    </test>
+</suite> <!-- Suite -->

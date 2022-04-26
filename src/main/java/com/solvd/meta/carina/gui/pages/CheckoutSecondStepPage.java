@@ -24,15 +24,17 @@ public class CheckoutSecondStepPage extends AbstractPage {
         setUiLoadedMarker(finishButton);
     }
 
-    public InventoryPage clickCancel(){
+    public InventoryPage clickCancel() {
         cancelButton.click();
         return new InventoryPage(driver);
     }
 
-    public CheckoutFinish clickFinish(){
+    public CheckoutFinish clickFinish() {
         finishButton.click();
         return new CheckoutFinish(driver);
     }
 
-    public Header getHeader(){return header;}
+    public Header getHeader() {
+        return header;
+    }
 }
