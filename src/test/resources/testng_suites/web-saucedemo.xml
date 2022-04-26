@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="1" name="Saucedemo test" parallel="methods" thread-count="5">
+    <parameter name="suiteOwner" value="qpsdemo"/>
+    <parameter name="jenkinsJobName" value="Saucedemo test cases"/>
+    <parameter name="jenkinsJobType" value="web"/>
+    <parameter name="jenkinsEnvironments" value="DEMO"/>
+
+    <parameter name="jenkinsRegressionPipeline" value="DEMO"/>
+
+    <parameter name="jenkinsRegressionMatrix_full_regression" value="browser: chrome;"/>
+    <parameter name="jenkinsAutoScreenshot" value="true"/>
+    <test name="Login Test">
+        <classes>
+            <class name="com.solvd.meta.carina.LoginTest">
+                <methods>
+                    <include name="loginTest"/>
+                    <include name="loginLockedUserTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test> <!-- Test -->
+    <test name="Products test">
+        <classes>
+            <class name="com.solvd.meta.carina.CheckProductDetailScreenTest">
+                <methods>
+                    <include name="checkDetailsTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Logout test">
+        <classes>
+            <class name="com.solvd.meta.carina.LogOutTest">
+                <methods>
+                    <include name="logOutTest"/>
+                </methods>
+            </class>
+            
+        </classes>
+    </test>
+    <test name="Make order test">
+        <classes>
+            <class name="com.solvd.meta.carina.MakeOrderTest">
+                <methods>
+                    <include name="makeOrderTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite> <!-- Suite -->

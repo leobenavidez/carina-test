@@ -1,12 +1,9 @@
 package com.solvd.meta.carina.gui.pages;
 
-import com.qaprosoft.carina.core.foundation.utils.Configuration;
-import com.qaprosoft.carina.core.foundation.utils.R;
+
+import com.qaprosoft.carina.core.foundation.webdriver.decorator.PageOpeningStrategy;
 import com.qaprosoft.carina.core.gui.AbstractPage;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
-import com.qaprosoft.carina.core.foundation.webdriver.core.capability.impl.desktop.ChromeCapabilities;
-import com.qaprosoft.carina.demo.gui.pages.HomePage;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.slf4j.Logger;
@@ -24,21 +21,30 @@ public class LogInPage extends AbstractPage {
     @FindBy(xpath = "//input[@data-test='login-button']")
     private ExtendedWebElement logIn;
 
+    @FindBy(xpath = "//h3[@data-test='error']")
+    private ExtendedWebElement errorMesage;
+
     public LogInPage(WebDriver driver) {
         super(driver);
-        setPageAbsoluteURL(R.CONFIG.get(Configuration.Parameter.URL.getKey()));
+        setPageOpeningStrategy(PageOpeningStrategy.BY_ELEMENT);
+        setUiLoadedMarker(logIn);
     }
 
-    public void setUsername(String keys){
+    public void setUsername(String keys) {
         this.username.type(keys);
     }
-    public void setPassword(String keys){
+
+    public void setPassword(String keys) {
         assertElementPresent(password);
         this.password.type(keys);
     }
-    public HomePage clickLogIn(){
+
+    public InventoryPage clickLogIn() {
         logIn.click();
-        return new HomePage(getDriver());
+        return new InventoryPage(getDriver());
     }
-    public boolean isPageOpen(){return username.isPresent();}
+
+    public boolean errorMesaggeIsPresent(){
+        return errorMesage.isPresent();
+    }
 }
