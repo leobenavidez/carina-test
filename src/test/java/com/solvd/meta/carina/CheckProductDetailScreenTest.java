@@ -23,8 +23,8 @@ public class CheckProductDetailScreenTest implements IAbstractTest {
             Assert.assertTrue(detailsProductPage.isPresentImage(), "The image of the product" + detailsProductPage.getItemName() + "is not displayed ");
             Assert.assertTrue(detailsProductPage.isPresentItemDesc(), "The description of the product" + detailsProductPage.getItemName() + "is not displayed ");
             Assert.assertTrue(detailsProductPage.isPresentPrice(), "The price of the product" + detailsProductPage.getItemName() + "is not displayed ");
-            inventoryPage = detailsProductPage.clickBackToProducts();
             new TakeScreenshot().makeScreenshot();
+            inventoryPage = detailsProductPage.clickBackToProducts();
         }
         Assert.assertTrue(inventoryPage.isPageOpened(), "Error occurred");
     }
