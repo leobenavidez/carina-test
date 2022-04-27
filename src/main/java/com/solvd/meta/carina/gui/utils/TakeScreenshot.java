@@ -17,8 +17,8 @@ import static com.zebrunner.agent.core.registrar.TestRunRegistrar.LOGGER;
 
 public class TakeScreenshot implements IDriverPool {
 
-    public void makeScreenshot(String path) {
-        File outputfile = new File(FilenameUtils.normalize(R.TESTDATA.get("path") + path + ".png"));
+    public void makeScreenshot(String fileName) {
+        File outputfile = new File(FilenameUtils.normalize(R.TESTDATA.get("path") + fileName + ".png"));
         BufferedImage screenshot = null;
         try {
             screenshot = ImageIO.read(((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE));
